@@ -43,111 +43,68 @@ const QUESTIONS = [
 ];
 
 inquirer.prompt(QUESTIONS).then(answers => {
-  const project_choice = answers['project-choice'];
-  const project_name = answers['project-name'];
-  const project_class = answers['project-class'];
-  const project_description = answers['project-description'];
+    const project_choice = answers['project-choice'];
+    const project_name = answers['project-name'];
+    const project_class = answers['project-class'];
+    const project_description = answers['project-description'];
 
-  const template_path = `${__dirname}/templates/${project_choice}`
-  const project_path = `${CURR_DIR}/${project_class}`
+    const template_path = `${__dirname}/templates/${project_choice}`
+    const project_path = `${CURR_DIR}/${project_class}`
 
-  console.log(`Template Path: ${template_path}`)
-  console.log(`Creating project at path: ${project_path}`)
+    console.log(`Template Path: ${template_path}`)
+    console.log(`Creating project at path: ${project_path}`)
 
-  fs.mkdirSync(project_path);
+    fs.mkdirSync(project_path);
 
-  createDirectoryContents(template_path, project_class);
+    createDirectoryContents(template_path, project_class);
 
-  // edit /package.json
-  fs.readFile(`${project_path}/package.json`, 'utf-8', function(err, data){
-    if (err) throw err;
+    modify_file(`${project_path}/package.json`, [
+        ['"name":', ': "', project_class]
+    ])
 
-    var new_out = '';
-    var split_data = data.toString().split("\n")
-    for (var i = 0; i < split_data.length; i++) {
-      let line = split_data[i];
-      if (line.includes('"name":')) { 
-        let modified_line = line.split(': "')[0] + `: "${project_class}",`
-        new_out += modified_line + '\n'
-        continue
-      }
-      new_out += line + '\n'
-    }
+    // edit /.vscode/settings.json
+    modify_file(`${project_path}/.vscode/settings.json`, [
+        ['"window.title":', ': "', project_name]
+    ])
 
-    console.log(new_out)
-
-    fs.writeFile(`${project_path}/package.json`, new_out, 'utf-8', function (err) {
-      if (err) throw err;
-      console.log('Update package.json complete');
-    });
-  });
-
-  // edit /.vscode/settings.json
-  fs.readFile(`${project_path}/.vscode/settings.json`, 'utf-8', function(err, data){
-    if (err) throw err;
-
-    var new_out = '';
-    var split_data = data.toString().split("\n")
-    for (var i = 0; i < split_data.length; i++) {
-      let line = split_data[i];
-      // "window.title": "Generic Navbar Template",
-      if (line.includes('"window.title":')) { 
-        let modified_line = line.split(': "')[0] + `: "${project_name}",`
-        new_out += modified_line + '\n'
-        continue
-      }
-      new_out += line + '\n'
-    }
-
-    console.log(new_out)
-
-    fs.writeFile(`${project_path}/.vscode/settings.json`, new_out, 'utf-8', function (err) {
-      if (err) throw err;
-      console.log('Update /.vscode/settings.jsonn complete');
-    });
-  });
-
-  // edit /lib/constants.js
-  fs.readFile(`${project_path}/lib/constants.js`, 'utf-8', function(err, data){
-    if (err) throw err;
-
-    var new_out = '';
-    var split_data = data.toString().split("\n")
-    for (var i = 0; i < split_data.length; i++) {
-      let line = split_data[i];
-
-      /*
-      SITE_FULL_NAME: "Generic Navbar Auth Template",
-      SITE_CLASS_NAME: "generic_navbar_auth_template",
-      SITE_DESCRIPTION: "Generic Navbar Auth Template",
-      SITE_URL: "",
-      AWS_BUCKET_URL: "",
-      CONTACT_FULL_NAME: "First Last",
-      CONTACT_EMAIL: "example@gmail.com"
-      */
-
-      if (line.includes('SITE_FULL_NAME: "')) { 
-        let modified_line = line.split(': "')[0] + `: "${project_name}",`
-        new_out += modified_line + '\n'
-        continue
-      } else if (line.includes('SITE_CLASS_NAME: "')) { 
-        let modified_line = line.split(': "')[0] + `: "${project_class}",`
-        new_out += modified_line + '\n'
-        continue
-      } else if (line.includes('SITE_DESCRIPTION: "')) { 
-        let modified_line = line.split(': "')[0] + `: "${project_description}",`
-        new_out += modified_line + '\n'
-        continue
-      }
-      new_out += line + '\n'
-    }
-
-    console.log(new_out)
-
-    fs.writeFile(`${project_path}/lib/constants.js`, new_out, 'utf-8', function (err) {
-      if (err) throw err;
-      console.log('Update /lib/constants.js complete');
-    });
-  });
+    // edit /lib/constants.js
+    modify_file(`${project_path}/lib/constants.js`, [
+        ['SITE_FULL_NAME: "', ': "', project_name],
+        ['SITE_CLASS_NAME: "', ': "', project_class],
+        ['SITE_DESCRIPTION: "', ': "', project_description],
+    ])
 });
+    
 
+function modify_file(file_path, modification_array) {
+    console.log(`Modifying file: ${file_path}`)
+    fs.readFile(file_path, 'utf-8', function(err, data){
+        if (err) throw err;
+
+        var new_out = '';
+        var split_data = data.toString().split("\n")
+        for (var i = 0; i < split_data.length; i++) {
+            let line = split_data[i];
+            
+            var found = false
+            for (var x = 0; x < modification_array.length; x++) {
+                let search_string = modification_array[x][0]
+                let split_string = modification_array[x][1]
+                let modification_string = modification_array[x][2]
+                if (line.includes(search_string)) { 
+                    let modified_line = line.split(split_string)[0] + `${split_string}${modification_string}",`
+                    new_out += modified_line + '\n'
+                    found = true
+                    continue
+                }
+            }
+            if (!found) new_out += line + '\n'
+        }
+
+        fs.writeFile(file_path, new_out, 'utf-8', function (err) {
+            if (err) throw err;
+            console.log(`Update ${file_path} complete`);
+        });
+    });
+
+}
