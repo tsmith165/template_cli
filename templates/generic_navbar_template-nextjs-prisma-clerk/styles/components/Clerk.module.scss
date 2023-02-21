@@ -1,0 +1,17 @@
+@import "../../theme/theme";
+
+.clerk_container { 
+    width: 100%; 
+    max-height: calc(100vh - 100px); 
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+.clerk_inner_container {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
