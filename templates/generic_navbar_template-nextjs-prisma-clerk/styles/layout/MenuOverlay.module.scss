@@ -1,0 +1,28 @@
+@import "../../theme/theme";
+
+.menu_overlay_item { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 50px; 
+    padding: 5px; 
+    color: $light; 
+    background-color: $primary; 
+    border-bottom: 2px solid $secondary; 
+    font-weight: bold;
+}
+.menu_overlay_item:last-of-type { 
+    border-bottom-left-radius: 8px; 
+    border-bottom: none; 
+}
+.menu_overlay_item:hover { 
+    background-color: $light; 
+    color: $secondary; 
+}
+    .menu_overlay_item_title { 
+        font-size: 16px; 
+        text-decoration: none; 
+    }
+    .menu_overlay_items_container > a { 
+        text-decoration: none; 
+    }

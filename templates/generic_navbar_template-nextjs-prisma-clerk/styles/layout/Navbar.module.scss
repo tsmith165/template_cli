@@ -1,0 +1,230 @@
+@import "../../theme/theme";
+
+.navbar { 
+    padding: 0 !important; 
+    overflow: hidden; 
+    background-color: $secondary;  
+}
+    .navbar_container { 
+        height: 100px; 
+        width: 100%; 
+        overflow: hidden;  
+    }
+
+        // Image Logo 
+        .navbar_logo {
+            position: relative;
+            padding: 0 !important; 
+            margin: 0 !important;
+            width: 250px !important;
+            max-width: 250px !important;
+            height: 100% !important;  
+        }
+            .navbar_logo_img { 
+                min-height: 80px; 
+                padding: 10px !important; 
+            }
+
+        // Icon + Text Logo
+        .navbar_logo_icon {
+            position: relative;
+            padding: 0 !important; 
+            margin: 0 !important;
+            width: 250px !important;
+            max-width: 250px !important;
+            height: 100% !important;
+            display: flex;
+            flex-direction: row;
+        }
+
+            .logo_icon {
+                width: 80px !important;
+                height: 80px !important;
+                margin: 10px;
+                color: $light;
+            }
+            
+            .logo_text {
+                line-height: 80px !important;
+                font-size: 36px;
+                font-weight: 1000;
+                color: $light;
+            }
+    
+@media (max-width: 800px) { // mobile
+    // Menu Hamburger Button
+    .hamburger_button { 
+        position: absolute; 
+        top: 60px; 
+        right: 0; 
+        width: 40px !important; 
+        height: 40px !important; 
+        padding: 10px; 
+        background-color: $primary !important; 
+        color: $light !important; 
+        border-top-left-radius: 5px; 
+    }
+    .hamburger_button:hover { 
+        background-color: $light !important; 
+        color: $secondary !important; 
+    }
+
+    .hamburger_button_open { 
+        position: absolute; 
+        top: 60px; 
+        right: 0; 
+        width: 40px !important; 
+        height: 40px !important; 
+        padding: 10px; 
+        background-color: $light !important; 
+        color: $primary !important; 
+        border-top-left-radius: 5px; 
+    }
+    .hamburger_button:hover { 
+        background-color: $primary !important; 
+        color: $light !important; 
+    }
+    
+    .instagram_link_container { 
+        position: absolute; 
+        top: 60px; 
+        right: 80px; 
+        width: 40px !important; 
+        height: 40px !important; 
+    }
+        .instagram_logo_link_container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+        }
+            .instagram_logo_link {  
+                background-color: $primary !important; 
+                border-top-left-radius: 5px; 
+                border-top-right-radius: 5px; 
+                padding: 7.5px !important; 
+            }
+            .instagram_logo_link:hover { 
+                background-color: $light !important; 
+            }
+    
+    .clerk_user_button_container {
+        background-color: $primary;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        position: absolute; 
+        top: 60px; 
+        right: 40px;
+        width: 40px;
+        height: 40px;
+        padding: 5px;
+    }
+    .clerk_user_button_container:hover {
+        background-color: $light;
+    }
+
+    .sign_in_button {
+        width: 32px !important;
+        height: 32px !important;
+        fill: $light !important;
+    }
+    .sign_in_button:hover {
+        fill: $secondary !important;
+    }
+}
+@media (min-width: 799px) { // browser
+    // Menu Hamburger Button
+    .hamburger_button { 
+        position: absolute; 
+        top: 50px; 
+        right: 0; 
+        width: 50px !important; 
+        height: 50px !important; 
+        padding: 10px; 
+        background-color: $primary !important; 
+        color: $light !important; 
+        border-top-left-radius: 5px; 
+    }
+    .hamburger_button:hover { 
+        background-color: $light !important; 
+        color: $secondary !important; 
+    }
+
+    .hamburger_button_open { 
+        position: absolute; 
+        top: 50px; 
+        right: 0; 
+        width: 50px !important; 
+        height: 50px !important; 
+        padding: 10px; 
+        background-color: $light !important; 
+        color: $primary !important; 
+        border-top-left-radius: 5px; 
+    }
+    
+    .instagram_link_container { 
+        position: absolute; 
+        top: 50px; 
+        right: 100px; 
+        width: 50px !important; 
+        height: 50px !important; 
+    }
+        .instagram_logo_link_container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+        }
+            .instagram_logo_link {  
+                background-color: $primary !important; 
+                border-top-left-radius: 5px; 
+                border-top-right-radius: 5px; 
+                padding: 10px !important; 
+            }
+            .instagram_logo_link:hover { 
+                background-color: $light !important; 
+            }
+    
+    .clerk_user_button_container {
+        background-color: $primary;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        position: absolute; 
+        top: 50px; 
+        right: 50px;
+        width: 50px;
+        height: 50px;
+        padding: 9px;
+    }
+    .clerk_user_button_container:hover {
+        background-color: $light;
+    }
+
+    .sign_in_button {
+        width: 32px !important;
+        height: 32px !important;
+        fill: $light !important;
+    }
+    .sign_in_button:hover {
+        fill: $secondary !important;
+    }
+}
+
+// Page Menu Overlay
+.page_menu_container { 
+    position: absolute; 
+    z-index: 100; 
+    top: 100px; 
+    right: 0px; 
+    width: 200px; 
+    height: fit-content; 
+    background-color: $light; 
+    border-left: 2px solid $secondary; 
+    border-bottom: 2px solid $secondary;
+    border-bottom-left-radius: 10px; 
+}
+    .page_menu_body { 
+        padding: 0 !important; 
+    }
+    
+

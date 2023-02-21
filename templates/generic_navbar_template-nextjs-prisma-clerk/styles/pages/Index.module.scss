@@ -1,0 +1,26 @@
+@import "../../theme/theme";
+
+.page_container_split { 
+    position: absolute;
+    height: calc(100% - 100px); 
+    display: flex; 
+    flex-wrap: wrap; 
+    width: 100%; 
+  }
+    @media (max-width: 800px) {
+      .page_container_left { height: 40%; }
+      .page_container_right { height: 60% !important; overflow-y: scroll; }
+    }
+  
+    .page_container_left {
+      flex: 1 1 60%; 
+      justify-content: center; 
+      align-items: center;
+      background-color: $dark;
+    }
+  
+    .page_container_right {
+      flex: 1 1 40%; 
+      min-width: 30ch; 
+      background-color: $light;
+    }

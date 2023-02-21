@@ -1,0 +1,33 @@
+@import "../../theme/theme";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $lato_300;
+  overflow-y: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+select {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 3px 6px;
+  width: 250px;
+  background-color: #BD2786;
+  color: white;
+  letter-spacing: -.04em;
+  font-weight: bold;
+  border: 0;
+}
+
+

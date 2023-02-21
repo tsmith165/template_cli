@@ -1,0 +1,16 @@
+@import "../../theme/theme";
+
+.sign_in_container {
+    width: 100%;
+    height: calc(100vh - 100px);
+    background-color: $light;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign_in_inner_container {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}

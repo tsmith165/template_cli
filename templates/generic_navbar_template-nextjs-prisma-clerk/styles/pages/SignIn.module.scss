@@ -1,0 +1,96 @@
+@import "../../theme/theme";
+
+.full_sign_in_container { 
+    position: absolute; 
+    top: 100px; 
+    left: 0px; 
+    width: 100vw; 
+    min-height: calc(100% - 100px); 
+    height: calc(100% - 100px); 
+    background-color: $light; 
+}
+    .sign_in_container { 
+        position: absolute; 
+        left: 0; 
+        right: 0; 
+        top: 0; 
+        bottom: 0; 
+        width: 400px; 
+        height: fit-content; 
+        background-color: $primary; 
+        margin: auto; 
+        border-radius: 5px; 
+    }
+        .sign_in_header { 
+            height: 50px; 
+            background-color: $secondary; 
+            border-radius: 5px 5px 0px 0px; 
+        }
+            .sign_in_header_title { 
+                color: $light; 
+                font-size: 24px; 
+                line-height: 50px; 
+                text-align: center; 
+                font-weight: bold; 
+            }
+        .sign_in_body { 
+            border-radius: 0px 0px 5px 5px; 
+        }
+            .email_form_container { 
+                padding: 10px; 
+            }
+                .email_input_container { 
+                    display: flex; 
+                    flex-direction: row; 
+                    width: 100%; 
+                    margin-bottom: 10px; 
+                }
+                .email_label { 
+                    color: $light; 
+                    font-size: 18px; 
+                    font-weight: bold; 
+                    margin-right: 10px; 
+                }
+                .email_input { 
+                    padding: 5px 10px; 
+                    flex: 2; 
+                    color: $secondary;
+                    background-color: $light !important; 
+                    box-sizing: border-box; 
+                    border-radius: 5px; 
+                }
+                .submit_container { 
+                    display: flex; 
+                    flex-direction: row; 
+                    height: 40px; 
+                }
+                .sign_in_button { 
+                    padding: 10px 20px; 
+                    color: $secondary; 
+                    background-color: $light; 
+                    border: 2px solid $secondary; 
+                    border-radius: 5px; 
+                    font-weight: bold; 
+                    margin-right: 10px;  
+                }
+                .sign_in_button:hover { 
+                    color: $light;
+                    background-color: $secondary; 
+                    border: 2px solid $light; 
+                }
+
+                .loader_container { 
+                    display: flex; 
+                    justify-content: center; 
+                    align-items: center; 
+                    height: 100%; 
+                }
+                .loader { 
+                    width: 25px !important; 
+                    height: 25px !important; 
+                }
+                .sent_label { 
+                    font-size: 16px; 
+                    font-weight: 500; 
+                    color: $light; 
+                }
