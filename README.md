@@ -2,6 +2,7 @@
 Quickly deploy new NextJS sites with this Template CLI that modifies given templates based off your specifications.  Drastically reduces project setup time past what create-react-app or create-next-app does for you.
 
 My video on setting this up: https://www.youtube.com/watch?v=GgdWxoU01M4
+
 Powerpoint slides from video: https://www.beautiful.ai/player/-NOsGFC0mu3JPEfbBHvQ
 
 Based on template-cli from Leo Roese:
