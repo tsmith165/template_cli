@@ -1,9 +1,7 @@
 # Full Stack NextJS Template CLI with built in Navbar and Clerk Auth / PostgresQL / Prisma
 Quickly deploy new NextJS sites with this Template CLI that modifies given templates based off your specifications.  Drastically reduces project setup time past what create-react-app or create-next-app does for you.
-
-My video on setting this up: https://www.youtube.com/watch?v=GgdWxoU01M4
-
-Powerpoint slides from video: https://www.beautiful.ai/player/-NOsGFC0mu3JPEfbBHvQ
+  - My video on setting this up: https://www.youtube.com/watch?v=GgdWxoU01M4
+  - Powerpoint slides from video: https://www.beautiful.ai/player/-NOsGFC0mu3JPEfbBHvQ
 
 Based on template-cli from Leo Roese:
   - Leo Roese project github: https://github.com/leoroese/template-cli
