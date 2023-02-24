@@ -2,7 +2,8 @@
 
 .clerk_container { 
     width: 100%; 
-    max-height: calc(100vh - 100px); 
+    max-height: calc(100vh - 100px) !important; 
+    height: calc(100vh - 100px) !important; 
     padding: 20px;
     display: flex;
     align-items: center;
