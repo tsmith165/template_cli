@@ -1,3 +1,5 @@
+import PROJECT_CONSTANTS from '@/lib/constants'
+
 import React from 'react';
 import { withRouter } from 'next/router'
 
@@ -9,7 +11,7 @@ class Admin extends React.Component {
     constructor(props) {
         super(props);
 
-        this.page_title = "Admin"
+        this.page_title = `Admin | ${PROJECT_CONSTANTS.SITE_FULL_NAME}`
     }
 
     async componentDidMount() { }

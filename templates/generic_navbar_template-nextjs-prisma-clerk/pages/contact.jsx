@@ -1,3 +1,5 @@
+import PROJECT_CONSTANTS from '@/lib/constants'
+
 import React from 'react';
 
 import PageLayout from '@/components/layout/PageLayout'
@@ -7,7 +9,7 @@ class ContactPage extends React.Component {
     constructor(props) {
         super(props);
 
-        this.page_title = "Contact"
+        this.page_title = `Contact | ${PROJECT_CONSTANTS.SITE_FULL_NAME}`
     }
 
     async componentDidMount() { }

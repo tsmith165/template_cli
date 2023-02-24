@@ -1,3 +1,5 @@
+import PROJECT_CONSTANTS from '@/lib/constants'
+
 import React from 'react';
 
 import PageLayout from '@/components/layout/PageLayout'
@@ -8,7 +10,7 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
 
-        this.page_title = "Home"
+        this.page_title = `Home | ${PROJECT_CONSTANTS.SITE_FULL_NAME}`
     }
 
     async componentDidMount() { }
